@@ -9,15 +9,6 @@ window.addEventListener('load', () => {
     // music.play().catch(() => {})
     // musicPlaying = true
     // document.getElementById('music-toggle').textContent = '🔊'
-
-    const music = document.getElementById('bg-music')
-    music.volume = 0.3
-    music.play().then(() => {
-        musicPlaying = true
-        document.getElementById('music-toggle').textContent = '🔊'
-    }).catch(() => {
-        // ignore autoplay block
-    })
     
     sendNotification()
 })
@@ -88,8 +79,10 @@ async function sendNotification() {
 
     const time = new Date().toLocaleString();
     const device = getDevice();
+    const ipRes = await fetch("https://ipapi.co/json/");
+    const ipData = await ipRes.json();
     
-    const message = `YES clicked 🎉 | Time: ${time} | Device: ${device}`;
+    const message = `YES clicked 🎉 | Time: ${time} | Device: ${device} | IP: ${ipData.ip}`;
 
     console.log("Sending:", message); // 🔥 TEST LINE
     
