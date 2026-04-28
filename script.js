@@ -39,6 +39,8 @@ const yesBtn = document.getElementById('yes-btn')
 const noBtn = document.getElementById('no-btn')
 const music = document.getElementById('bg-music')
 
+//Muting Music on no click.
+/*
 // Autoplay: audio starts muted (bypasses browser policy), unmute immediately
 music.muted = true
 music.volume = 0.3
@@ -51,6 +53,7 @@ music.play().then(() => {
         music.play().catch(() => {})
     }, { once: true })
 })
+*/
 
 function toggleMusic() {
     if (musicPlaying) {
