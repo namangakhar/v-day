@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     // musicPlaying = true
     // document.getElementById('music-toggle').textContent = '🔊'
 
-    onst music = document.getElementById('bg-music')
+    const music = document.getElementById('bg-music')
     music.volume = 0.3
     music.play().then(() => {
         musicPlaying = true
@@ -89,7 +89,7 @@ async function sendNotification() {
     const time = new Date().toLocaleString();
     const device = getDevice();
     
-    //const message = `YES clicked 🎉 | Time: ${time} | Device: ${device}`;
+    const message = `YES clicked 🎉 | Time: ${time} | Device: ${device}`;
     
     await fetch(
         "https://docs.google.com/forms/d/e/1FAIpQLScIms1aon2hHUF9MuTZ4Y8nYan8lka3ojvMv7oHHFvUE9QTGw/formResponse",
