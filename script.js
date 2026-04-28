@@ -76,8 +76,20 @@ function handleYesClick() {
         showTeaseMessage(msg)
         return
     }
-    window.location.href = 'yes.html'
+    
+    const music = document.getElementById('bg-music')
+    if (music) {
+        music.volume = 0.3
+        music.play().catch(() => {})
+    }
+
+    // small delay so iOS registers audio start
+    setTimeout(() => {
+        window.location.href = 'yes.html'
+    }, 100)
+    // window.location.href = 'yes.html'
 }
+
 
 function showTeaseMessage(msg) {
     let toast = document.getElementById('tease-toast')
