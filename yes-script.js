@@ -61,3 +61,35 @@ function toggleMusic() {
         document.getElementById('music-toggle').textContent = '🔊'
     }
 }
+
+async function sendNotification() {
+    function getDevice() {
+        const ua = navigator.userAgent.toLowerCase();
+
+        if (ua.includes("iphone")) return "iPhone";
+        if (ua.includes("ipad")) return "iPad";
+        if (ua.includes("android")) return "Android";
+        if (ua.includes("windows")) return "Windows PC";
+        if (ua.includes("mac")) return "Mac";
+
+        return "Unknown";
+    }
+
+    const time = new Date().toLocaleString();
+    const device = getDevice();
+    
+    //const message = `YES clicked 🎉 | Time: ${time} | Device: ${device}`;
+    
+    await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLScIms1aon2hHUF9MuTZ4Y8nYan8lka3ojvMv7oHHFvUE9QTGw/formResponse",
+        {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "entry.1756652319=" + encodeURIComponent(message)
+        }
+    );
+}
+
