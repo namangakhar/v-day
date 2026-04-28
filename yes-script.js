@@ -90,6 +90,8 @@ async function sendNotification() {
     const device = getDevice();
     
     const message = `YES clicked 🎉 | Time: ${time} | Device: ${device}`;
+
+    console.log("Sending:", message); // 🔥 TEST LINE
     
     await fetch(
         "https://docs.google.com/forms/d/e/1FAIpQLScIms1aon2hHUF9MuTZ4Y8nYan8lka3ojvMv7oHHFvUE9QTGw/formResponse",
@@ -102,5 +104,11 @@ async function sendNotification() {
             body: "entry.1756652319=" + encodeURIComponent(message)
         }
     );
+
+    console.log("Sent to Google Forms");
+
 }
+
+
+
 
